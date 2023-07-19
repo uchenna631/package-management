@@ -31,21 +31,21 @@ echo "end on tomcat installation"
 #2. Start of tomcat configuration 
 
 #Tomcat server configuration:
-find / -name server.xml context.xml
-vim /opt/tomcat9/conf/server.xml
-vi /opt/tomcat9/webapps/manager/META-INF/context.xml
-vi /opt/tomcat9/conf/tomcat-user.xml  # to add user
+# find / -name server.xml context.xml
+# vim /opt/tomcat9/conf/server.xml
+# vi /opt/tomcat9/webapps/manager/META-INF/context.xml
+# vi /opt/tomcat9/conf/tomcat-users.xml  # to add user
 
-	<user username="landmark" password="admin" roles="manager-gui,admin-gui"/>
+#	<user username="landmark" password="admin" roles="manager-gui,admin-gui"/>
 	
 
-/opt/tomcat9/conf/context.xml
+# /opt/tomcat9/conf/context.xml
 
- vi /opt/tomcat9/webapps/manager/META-INF/context.xml
+#  vi /opt/tomcat9/webapps/manager/META-INF/context.xml
   
-  vi /opt/tomcat9/conf/tomcat-user.xml  # to add user
+#  vi /opt/tomcat9/conf/tomcat-users.xml  # to add user
   
 	
-	username YourName password=PassWord   roles=manager-gui
+#	username YourName password=PassWord   roles=manager-gui
 	
 	
