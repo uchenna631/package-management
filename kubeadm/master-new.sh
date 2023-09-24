@@ -30,19 +30,19 @@ sudo echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://
 
 #Install containerd
 sudo apt-get update -y
-sudo apt-get install containerd.io -y
+sudo apt-get install containerd -y
 
 #Generate default configuration file for container
 sudo containerd config default > /etc/containerd/config.toml
 
 # Run following command to update configure cgroup as systemd for contianerd.
 
-sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 
 # Restart and enable containerd service
 
-systemctl restart containerd
-systemctl enable containerd
+sudo systemctl restart containerd
+sudo systemctl enable containerd
 
 sudo apt-get update -y
 sudo apt-get install -y kubelet kubeadm kubectl
