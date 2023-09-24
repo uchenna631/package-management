@@ -17,7 +17,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
 EOF
 
-sudo sysctl --system
+
 #4 Install containerd run time
 # To install containerd, first install its dependencies
 
@@ -33,15 +33,17 @@ sudo echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://
 sudo apt-get update -y
 sudo apt-get install containerd -y
 
-#Generate default configuration file for container
-sudo containerd config default > /etc/containerd/config.toml
 
 # Run following command to update configure cgroup as systemd for contianerd.
 
 sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
 
+sudo sysctl --system
 # Restart and enable containerd service
 
+#Generate default configuration file for container
+sudo mkdir -p /etc/containerd
+sudo containerd config default | sudo tee /etc/containerd/config.toml
 sudo systemctl restart containerd
 sudo systemctl enable containerd
 
